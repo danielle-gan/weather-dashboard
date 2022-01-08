@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="title is-1 has-text-centered">Weather Dashboard</h1>
+    </header>
+
+    <div class="columns">
+        <div class="column is-one-third ml-2">
+            <label class="label">Search for any city:</label>
+            <!-- Search Bar -->
+            <div class="row">
+                <div class="control mx-2">
+                    <input class="input" type="text" placeholder="ex. Farmington">
+                </div>
+                <div class="control">
+                    <button class="button is-link">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Search History -->
+            <div class="bg-test">
+                <ul class="searched">
+                    <h2>City Search History</h2>
+                </ul>
+            </div>
+        </div>
+        <!-- Actual Weather Information -->
+        <div class="column is two-thirds bg-test mx-1">
+            <div class="row card">
+                <div class="card-header"></div>
+                <div class="card-content"></div>
+            </div>
+            <!-- Five Day Weather Forecast -->
+            <div class="row bg-test my-2">
+                <div class="column card mx-1" id="day1">
+                    <div class="card-header"></div>
+                    <div class="card-content"></div>
+                </div>
+                <div class="column card mx-1" id="day2">
+                    <div class="card-header"></div>
+                    <div class="card-content"></div>
+                </div>
+                <div class="column card mx-1" id="day3">
+                    <div class="card-header"></div>
+                    <div class="card-content"></div>
+                </div>
+                <div class="column card mx-1" id="day4">
+                    <div class="card-header"></div>
+                    <div class="card-content"></div>
+                </div>
+                <div class="column card mx-1" id="day5">
+                    <div class="card-header"></div>
+                    <div class="card-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+</body>
+
+</html>
