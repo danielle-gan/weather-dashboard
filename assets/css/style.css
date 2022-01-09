@@ -19,3 +19,16 @@ html {
 .content-text{
     size: 1em;
 }
+
+
+.moderate {
+    background-color: yellow;
+}
+
+.favorable {
+    background-color: green;
+}
+
+.severe {
+    background-color: red;
+}

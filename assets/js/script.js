@@ -42,36 +42,49 @@ $(document).ready(function () {
             url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
             success: function (data) {
                 console.log(data);
-                var date1 = $("<h3>").text(new Date(Date.now() + (3600*1000*24)).toLocaleDateString());
+                var date1 = $("<h3>").text(new Date(Date.now() + (3600 * 1000 * 24)).toLocaleDateString());
                 $(".day1header").append(date1);
-                var temp1 = $("<p>").text("Temp: " + data.daily[1].temp.day +" deg F");
-                var wind1 = $("<p>").text("Wind: " + data.daily[1].wind_speed +" MPH");
-                var humidity1 = $("<p>").text("Humidity: " + data.daily[1].humidity+ "%");
-                $(".day1content").append(temp1,wind1,humidity1);
-                var date2 = $("<h3>").text(new Date(Date.now() + (3600*1000*48)).toLocaleDateString());
+                var temp1 = $("<p>").text("Temp: " + data.daily[1].temp.day + " deg F");
+                var wind1 = $("<p>").text("Wind: " + data.daily[1].wind_speed + " MPH");
+                var humidity1 = $("<p>").text("Humidity: " + data.daily[1].humidity + "%");
+                $(".day1content").append(temp1, wind1, humidity1);
+                var date2 = $("<h3>").text(new Date(Date.now() + (3600 * 1000 * 48)).toLocaleDateString());
                 $(".day2header").append(date2);
-                var temp2 = $("<p>").text("Temp: " + data.daily[2].temp.day +" deg F");
-                var wind2 = $("<p>").text("Wind: " + data.daily[2].wind_speed +" MPH");
-                var humidity2 = $("<p>").text("Humidity: " + data.daily[2].humidity+ "%");
-                $(".day2content").append(temp2,wind2,humidity2);
-                var date3 = $("<h3>").text(new Date(Date.now() + (3600*1000*72)).toLocaleDateString());
+                var temp2 = $("<p>").text("Temp: " + data.daily[2].temp.day + " deg F");
+                var wind2 = $("<p>").text("Wind: " + data.daily[2].wind_speed + " MPH");
+                var humidity2 = $("<p>").text("Humidity: " + data.daily[2].humidity + "%");
+                $(".day2content").append(temp2, wind2, humidity2);
+                var date3 = $("<h3>").text(new Date(Date.now() + (3600 * 1000 * 72)).toLocaleDateString());
                 $(".day3header").append(date3);
-                var temp3 = $("<p>").text("Temp: " + data.daily[3].temp.day +" deg F");
-                var wind3 = $("<p>").text("Wind: " + data.daily[3].wind_speed +" MPH");
-                var humidity3 = $("<p>").text("Humidity: " + data.daily[3].humidity+ "%");
-                $(".day3content").append(temp3,wind3,humidity3);
-                var date4 = $("<h3>").text(new Date(Date.now() + (3600*1000*96)).toLocaleDateString());
+                var temp3 = $("<p>").text("Temp: " + data.daily[3].temp.day + " deg F");
+                var wind3 = $("<p>").text("Wind: " + data.daily[3].wind_speed + " MPH");
+                var humidity3 = $("<p>").text("Humidity: " + data.daily[3].humidity + "%");
+                $(".day3content").append(temp3, wind3, humidity3);
+                var date4 = $("<h3>").text(new Date(Date.now() + (3600 * 1000 * 96)).toLocaleDateString());
                 $(".day4header").append(date4);
-                var temp4 = $("<p>").text("Temp: " + data.daily[4].temp.day +" deg F");
-                var wind4 = $("<p>").text("Wind: " + data.daily[4].wind_speed +" MPH");
-                var humidity4 = $("<p>").text("Humidity: " + data.daily[4].humidity+ "%");
-                $(".day4content").append(temp4,wind4,humidity4);
-                var date5 = $("<h3>").text(new Date(Date.now() + (3600*1000*130)).toLocaleDateString());
+                var temp4 = $("<p>").text("Temp: " + data.daily[4].temp.day + " deg F");
+                var wind4 = $("<p>").text("Wind: " + data.daily[4].wind_speed + " MPH");
+                var humidity4 = $("<p>").text("Humidity: " + data.daily[4].humidity + "%");
+                $(".day4content").append(temp4, wind4, humidity4);
+                var date5 = $("<h3>").text(new Date(Date.now() + (3600 * 1000 * 130)).toLocaleDateString());
                 $(".day5header").append(date5);
-                var temp5 = $("<p>").text("Temp: " + data.daily[5].temp.day +" deg F");
-                var wind5 = $("<p>").text("Wind: " + data.daily[5].wind_speed +" MPH");
-                var humidity5 = $("<p>").text("Humidity: " + data.daily[5].humidity+ "%");
-                $(".day5content").append(temp5,wind5,humidity5);
+                var temp5 = $("<p>").text("Temp: " + data.daily[5].temp.day + " deg F");
+                var wind5 = $("<p>").text("Wind: " + data.daily[5].wind_speed + " MPH");
+                var humidity5 = $("<p>").text("Humidity: " + data.daily[5].humidity + "%");
+                $(".day5content").append(temp5, wind5, humidity5);
+                // UV Index
+                if (data.daily[0].uvi <= 2) {
+                    var uvi = $("<p>").addClass("favorable").text("UV Index: " + data.daily[0].uvi)
+                    $("#today-content").append(uvi)
+                }
+                if (data.daily[0].uvi <= 5 && data.daily[0].uvi>2) {
+                    var uvi = $("<p>").addClass("moderate").text("UV Index: " + data.daily[0].uvi)
+                    $("#today-content").append(uvi)
+                }
+                else {
+                    var uvi = $("<p>").addClass("severe").text("UV Index: " + data.daily[0].uvi)
+                    $("#today-content").append(uvi)
+                }
             },
             error: function (error) {
                 console.log(error);
