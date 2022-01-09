@@ -1,4 +1,3 @@
-
 // global variables
 var apiKey = "2206f031debcc1c8875b407672a8becc";
 
@@ -10,19 +9,15 @@ $(document).ready(function () {
         getWeather(city);
     });
 
-
     // saving searches to local history and adding event listener for when you click on the list item
     var searchHistory = JSON.parse(localStorage.getItem("searched")) || [];
-
     for (var i = 0; i < searchHistory.length; i++) {
         createRow(history[i]);
     }
-
     function createRow(text) {
         var listItem = $("<li>").addClass("list-group-item").text(text);
         $(".history").append(listItem);
     }
-
     $(".history").on("click", "li", function () {
         getWeather($(this).text());
     });
@@ -36,7 +31,6 @@ $(document).ready(function () {
                 searchHistory.push(city);
                 localStorage.setItem("history", JSON.stringify(searchHistory));
                 createRow(city);
-                console.log(data);
                 var title = $("<h3>").text(data.name + " (" + new Date().toLocaleDateString() + ")");
                 $("#today-header").append(title);
                 var temp = $("<p>").text("Temp: " + data.main.temp + " deg F");
@@ -54,14 +48,12 @@ $(document).ready(function () {
         })
     };
 
-
     // I definitely should have made this a for loop.... but it's already done. I'm not going back now.
     function weatherForecast(lat, lon) {
         $.ajax({
             type: "GET",
             url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
             success: function (data) {
-                console.log(data);
                 // Day 1
                 var date1 = $("<h3>").text(new Date(Date.now() + (3600 * 1000 * 24)).toLocaleDateString());
                 $(".day1header").append(date1);
