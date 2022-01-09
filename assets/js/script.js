@@ -15,7 +15,7 @@ $(document).ready(function () {
         createRow(history[i]);
     }
     function createRow(text) {
-        var listItem = $("<li>").addClass("list-group-item").text(text);
+        var listItem = $("<li>").text(text);
         $(".history").append(listItem);
     }
     $(".history").on("click", "li", function () {
