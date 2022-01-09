@@ -14,7 +14,7 @@ Use the information learned in Module 6 to create a simple weather application s
 Type in any city into the search bar! Feel free to use the search history if you want to look at a previously searched city.  
 
 ## Screenshots
-![Main Page](https://github.com/danielle-gan/weather/blob/main/assets/images/mainpage-SS.PNG)
+![Main Page](https://github.com/danielle-gan/weather-dashboard/blob/main/assets/images/mainpage-SS.PNG)
 
 ## Link
 [Webpage](https://danielle-gan.github.io/weather-dashboard/index.html)
