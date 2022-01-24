@@ -10,9 +10,10 @@ $(document).ready(function () {
     });
 
     // saving searches to local history and adding event listener for when you click on the list item
-    var searchHistory = JSON.parse(localStorage.getItem("searched")) || [];
+    var searchHistory = JSON.parse(localStorage.getItem("history")) || [];
+    console.log(searchHistory);
     for (var i = 0; i < searchHistory.length; i++) {
-        createRow(history[i]);
+        createRow(searchHistory[i]);
     }
     function createRow(text) {
         var listItem = $("<li>").text(text);
@@ -96,16 +97,19 @@ $(document).ready(function () {
                 $(".day5content").append(icon5, temp5, wind5, humidity5);
                 // UV Index
                 if (data.daily[0].uvi <= 2) {
-                    var uvi = $("<p>").addClass("favorable").text("UV Index: " + data.daily[0].uvi)
-                    $("#today-content").append(uvi)
+                    var uvi = $("<p>").addClass("float").text("UV Index: ");
+                    var uviSymbol = $("<button>").addClass("favorable uvSymbol").text(data.daily[0].uvi)
+                    $("#today-content").append(uvi, uviSymbol);
                 }
                 if (data.daily[0].uvi <= 5 && data.daily[0].uvi > 2) {
-                    var uvi = $("<p>").addClass("moderate").text("UV Index: " + data.daily[0].uvi);
-                    $("#today-content").append(uvi);
+                    var uvi = $("<p>").addClass("float").text("UV Index: ");
+                    var uviSymbol = $("<button>").addClass("moderate uvSymbol").text(data.daily[0].uvi)
+                    $("#today-content").append(uvi, uviSymbol);
                 }
                 if (data.daily[0].uvi > 5) {
-                    var uvi = $("<p>").addClass("severe").text("UV Index: " + data.daily[0].uvi);
-                    $("#today-content").append(uvi);
+                    var uvi = $("<p>").addClass("float").text("UV Index: ");
+                    var uviSymbol = $("<button>").addClass("severe uvSymbol").text(data.daily[0].uvi)
+                    $("#today-content").append(uvi, uviSymbol);
                 }
                 // Icon for todday's weather
                 var iconContainer = $("<div>").addClass();
@@ -119,4 +123,5 @@ $(document).ready(function () {
             }
         })
     }
+
 });

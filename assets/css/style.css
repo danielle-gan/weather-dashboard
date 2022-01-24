@@ -16,6 +16,9 @@ html {
     flex-direction: row;
 }
 
+.float{
+    float:left;
+}
 .content-text{
     size: 1em;
 }
@@ -34,4 +37,8 @@ html {
 
 .search-history {
     font-weight: bold;
+}
+
+.uvSymbol {
+    margin: 0em 10px;
 }
